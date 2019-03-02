@@ -48,7 +48,7 @@ body {
 
 .text-box {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -56,16 +56,55 @@ body {
 .heading-primary {
     color: #fff;
     text-transform: uppercase;
+
+    /* Właściwość załatwiająca spawę podskawiania animacji */
+    backface-visibility: hidden; 
 }
 .heading-primary--main {
     display: block;
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
+
+    animation: moveInLeft .8s;
 }
 .heading-primary--sub {
     display: block;
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 17.4px;
+
+    animation: moveInRight .8s;
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
 }
